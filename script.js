@@ -364,15 +364,22 @@ function collectDot(dot) {
   }
 
   if (dot.letter) {
+    let correctLetter = false;
     for (let i = 0; i < TARGET_WORD.length; i++) {
       if (TARGET_WORD[i] === dot.letter && !collected[i]) {
         dot.collected = true;
         collected[i] = true;
-        spawnParticles(dotPosition.x, dotPosition.y, "#ffd784", 34, 180);
-        rings.push(
-          createRing(dotPosition.x, dotPosition.y, "#ffd784", 18, 96, 0.68),
-        );
+        correctLetter = true;
       }
+    }
+
+    if (correctLetter) {
+      spawnParticles(dotPosition.x, dotPosition.y, "#ffd784", 34, 180);
+      rings.push(
+        createRing(dotPosition.x, dotPosition.y, "#ffd784", 18, 96, 0.68),
+      );
+    } else {
+      spawnParticles(dotPosition.x, dotPosition.y, "#ff425f", 28, 150);
     }
 
     updateProgress();
