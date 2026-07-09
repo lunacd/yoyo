@@ -11,7 +11,7 @@ const LETTER_PROBABILITY = 0.7;
 const TARGET_WORD = "OUNCE";
 const WORD_UNIVERSE = "OUNCEIRZ";
 
-const GAME_DURATION = 90;
+const GAME_DURATION = 1;
 const DOT_RADIUS = 11;
 const PLAYER_RADIUS = 19;
 const YOYO_RADIUS = 13;
@@ -416,8 +416,8 @@ function endGame(won) {
 
   if (won) {
     arena.classList.add("win-glow");
-    overlayTitle.textContent = "TEAM WIN";
-    overlayText.textContent = "This is where quick moments happen.";
+    overlayTitle.textContent = "TEAM WIN!";
+    overlayText.textContent = "This is where click moments happen.";
     launchVictory();
   } else {
     overlayTitle.textContent = "GAME OVER";
