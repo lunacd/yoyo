@@ -25,7 +25,6 @@ const timerEl = document.getElementById("timer");
 const progressEl = document.getElementById("progress");
 const cooldownEl = document.getElementById("cooldown");
 const overlay = document.getElementById("overlay");
-const overlayKicker = document.getElementById("overlayKicker");
 const overlayTitle = document.getElementById("overlayTitle");
 const overlayText = document.getElementById("overlayText");
 const restartButton = document.getElementById("restartButton");
@@ -417,14 +416,12 @@ function endGame(won) {
 
   if (won) {
     arena.classList.add("win-glow");
-    overlayKicker.textContent = "Victory";
-    overlayTitle.textContent = "PHOENIX COMPLETE!";
-    overlayText.textContent = "The hidden letters have risen from the stream.";
+    overlayTitle.textContent = "TEAM WIN";
+    overlayText.textContent = "This is where quick moments happen.";
     launchVictory();
   } else {
-    overlayKicker.textContent = "Time Out";
-    overlayTitle.textContent = "TIME OUT";
-    overlayText.textContent = "The stream fades before PHOENIX is complete.";
+    overlayTitle.textContent = "GAME OVER";
+    overlayText.textContent = "";
     spawnParticles(width * 0.5, height * 0.5, "#ff425f", 44, 150);
   }
 }
