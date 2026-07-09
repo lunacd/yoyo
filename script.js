@@ -363,18 +363,18 @@ function collectDot(dot) {
     return;
   }
 
-  dot.collected = true;
   if (dot.letter) {
     for (let i = 0; i < TARGET_WORD.length; i++) {
-      if (TARGET_WORD[i] === dot.letter) {
+      if (TARGET_WORD[i] === dot.letter && !collected[i]) {
+        dot.collected = true;
         collected[i] = true;
+        spawnParticles(dotPosition.x, dotPosition.y, "#ffd784", 34, 180);
+        rings.push(
+          createRing(dotPosition.x, dotPosition.y, "#ffd784", 18, 96, 0.68),
+        );
       }
     }
 
-    spawnParticles(dotPosition.x, dotPosition.y, "#ffd784", 34, 180);
-    rings.push(
-      createRing(dotPosition.x, dotPosition.y, "#ffd784", 18, 96, 0.68),
-    );
     updateProgress();
 
     if (collected.every((collected) => collected)) {
